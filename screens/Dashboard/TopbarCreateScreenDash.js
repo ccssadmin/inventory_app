@@ -54,7 +54,7 @@ export default function TopbarCreateScreenDash( ) {
 
 const styles = StyleSheet.create({
     topbarContainer: {
-        flex: 0.3,
+        // flex: 0.3,
         flexDirection: 'column', 
         justifyContent: 'space-evenly', 
         backgroundColor: '#3F0D93', 
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         borderBottomLeftRadius: 50,
         borderBottomRightRadius: 50,
+        height: 120
     },
     headerRow: {
         flexDirection: 'row',

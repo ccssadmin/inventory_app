@@ -30,13 +30,14 @@ export default function TopbarCustomerCreation() {
 
 const styles = StyleSheet.create({
     topbarContainer: {
-        height: 100, 
+        height: 120, 
         flexDirection: 'column',
         justifyContent: 'center', 
         backgroundColor: '#3F0D93',
         width: '100%',
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
+        padding : 5
     },
     headerRow: {
         flexDirection: 'row',

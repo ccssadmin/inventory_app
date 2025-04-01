@@ -13,7 +13,7 @@ export default function Topbar() {
 
     return (
         <>
-            <StatusBar barStyle="dark-content" backgroundColor="#730aa3"/>
+            <StatusBar barStyle="dark-content" backgroundColor="#730aa3" style={{ height: '54px'}}/>
             
             <View style={styles.topbarContainer}>
 
@@ -49,14 +49,15 @@ export default function Topbar() {
 
 const styles = StyleSheet.create({
     topbarContainer: {
-        flex: 0.3,
         flexDirection: 'column', 
         justifyContent: 'space-evenly', 
         backgroundColor: '#3F0D93', 
         width: 395,
         marginBottom : 20,
         borderBottomLeftRadius : 50,
-        borderBottomRightRadius : 50
+        borderBottomRightRadius : 50,
+        height:'120px',
+        padding : 5
     },
     title: {
         fontSize: 24, 

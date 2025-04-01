@@ -1,9 +1,9 @@
 import React from "react";
 import { ScrollView, View, StyleSheet } from "react-native";
-import { Card, Text, Avatar, IconButton } from "react-native-paper";
+import { Card, Text, Avatar, IconButton, TextInput } from "react-native-paper";
 import TopbarCustomer from "../Customers/TopbarCustomer";
 
-export default function Purchase( {navigation}) {
+export default function Purchase({ navigation }) {
   const salesOrders = [
     {
       id: 1,
@@ -35,62 +35,76 @@ export default function Purchase( {navigation}) {
       date: "24 Feb - 2:02 pm",
       avatarColor: "yellow",
     },
+    {
+      id: 4,
+      company: "AK Enterprises",
+      contact: "AJITH ",
+      totalPrice: "₹ 12,00,000",
+      paymentTerm: "Paid",
+      orderNo: "#SO-0003",
+      date: "24 Feb - 2:02 pm",
+      avatarColor: "yellow",
+    },
   ];
 
   return (
     <>
-    <TopbarCustomer />
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Recent PO</Text>
-        <IconButton icon="calendar" size={24} onPress={() => {}} />
-      </View>
-      {salesOrders.map((order) => (
-        <Card key={order.id} style={styles.card} onPress={() => navigation.navigate('DetailPurchaseOrder')}>
-          <View style={styles.cardContent}>
-            <Avatar.Text
-              label={order.company.charAt(0)}
-              size={40}
-              color="white"
-              style={[styles.avatar, { backgroundColor: order.avatarColor }]}
-            />
-            <View style={styles.info}>
-              <Text style={styles.company}>{order.company}</Text>
-              <Text style={styles.contact}>{order.contact}</Text>
-            </View>
-            <View >
+      <TopbarCustomer />
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <TextInput
+          mode="outlined"
+          label="🔍 Search PO"
+          style={styles.input}
+        />
+        <View style={styles.header}>
+          <Text style={styles.title}>Recent PO</Text>
+          <IconButton icon="calendar" size={24} onPress={() => {}} />
+        </View>
+        {salesOrders.map((order) => (
+          <Card key={order.id} style={styles.card} onPress={() => navigation.navigate('DetailPurchaseOrder')}>
+            <View style={styles.cardContent}>
+              <Avatar.Text
+                label={order.company.charAt(0)}
+                size={40}
+                color="white"
+                style={[styles.avatar, { backgroundColor: order.avatarColor }]}
+              />
+              <View style={styles.info}>
+                <Text style={styles.company}>{order.company}</Text>
+                <Text style={styles.contact}>{order.contact}</Text>
+              </View>
+              <View>
                 <Text style={styles.orderNo}>{order.orderNo}</Text>
                 <Text style={styles.date}>{order.date}</Text>
+              </View>
             </View>
-            
-          </View>
-          <View style={styles.cardFooter}>
-            <View style={styles.footerSection}>
-              <Text style={styles.footerLabel}>Total Prize</Text>
-              <Text style={styles.footerValue}>{order.totalPrice}</Text>
+            <View style={styles.cardFooter}>
+              <View style={styles.footerSection}>
+                <Text style={styles.footerLabel}>Total Price</Text>
+                <Text style={styles.footerValue}>{order.totalPrice}</Text>
+              </View>
+              <View style={styles.footerSection}>
+                <Text style={styles.footerLabel}>Payment Term</Text>
+                <Text
+                  style={[
+                    styles.footerValue,
+                    order.paymentTerm === "Paid" ? styles.paid : styles.credit,
+                  ]}
+                >
+                  {order.paymentTerm}
+                </Text>
+              </View>
             </View>
-            <View style={styles.footerSection}>
-              <Text style={styles.footerLabel}>Payment Term</Text>
-              <Text
-                style={[
-                  styles.footerValue,
-                  order.paymentTerm === "Paid" ? styles.paid : styles.credit,
-                ]}
-              >
-                {order.paymentTerm}
-              </Text>
-            </View>
-          </View>
-        </Card>
-      ))}
-    </ScrollView>
+          </Card>
+        ))}
+      </ScrollView>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  scrollContainer: {
+    flexGrow: 1,
     padding: 16,
     backgroundColor: "#f5f5f5",
   },
@@ -104,9 +118,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
+  input: {
+    marginBottom: 16,
+    backgroundColor: "#fff",
+    paddingLeft: 10,
+  },
   card: {
     marginBottom: 16,
     borderRadius: 8,
+    backgroundColor: "white",
   },
   cardContent: {
     flexDirection: "row",
@@ -129,7 +149,7 @@ const styles = StyleSheet.create({
   orderNo: {
     color: "#777",
   },
-  date : {
+  date: {
     color: "#777",
   },
   cardFooter: {

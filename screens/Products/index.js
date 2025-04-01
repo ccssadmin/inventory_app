@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Image, ScrollView, Text } from 'react-native';
 import TopbarProduct from './TopbarProduct';
+import { TextInput } from 'react-native-paper';
 
 const Products = () => {
   const products = [
@@ -19,6 +20,11 @@ const Products = () => {
         contentContainerStyle={styles.container}
         style={styles.scrollView}
       >
+        <TextInput 
+          mode='outlined'
+          label="🔍 Search Products"
+          style={styles.input}
+        />
         {products.map((product) => (
           <View key={product.id} style={styles.card}>
             <View style={styles.cardContent}>
@@ -40,11 +46,16 @@ const Products = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    paddingTop: 0, // Ensure no extra padding at the top
+    paddingTop: 0,
   },
   scrollView: {
-    flex: 1, // Take up remaining space below the TopbarProduct
-    marginTop: 0, // Ensure no margin at the top
+    flex: 1,
+    marginTop: 0,
+  },
+  input: {
+    marginBottom: 16,
+    backgroundColor: "#fff",
+    paddingLeft: 10,
   },
   card: {
     marginBottom: 10,

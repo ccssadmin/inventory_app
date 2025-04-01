@@ -54,7 +54,7 @@ export default function TopbarProduct() {
 
 const styles = StyleSheet.create({
     topbarContainer: {
-        flex: 0.3,
+        height: 120,
         flexDirection: 'column', 
         justifyContent: 'space-evenly', 
         backgroundColor: '#3F0D93', 
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         borderBottomLeftRadius: 50,
         borderBottomRightRadius: 50,
-        
+        padding : 5
     },
     headerRow: {
         flexDirection: 'row',

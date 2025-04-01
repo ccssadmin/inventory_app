@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
-import { Card } from "react-native-paper";
+import { Card, PaperProvider } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
@@ -78,6 +78,7 @@ export default function Dashboard( { navigation }) {
               <Text style={styles.summaryNumber}>120</Text>
               <Text style={styles.summaryText}>In-Hand Products</Text>
             </View>
+            <View style={{ height:'30px', borderWidth: 0.2}}></View>
             <View style={styles.summaryBox}>
               <Text style={styles.summaryNumber}>45</Text>
               <Text style={styles.summaryText}>In-Hand Customers</Text>
@@ -174,8 +175,8 @@ const styles = StyleSheet.create({
   summaryHeading: {
     fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 20,
-    marginTop : 12
+    marginBottom: 16,
+    marginTop : 8
   },
   summaryRow: {
     flexDirection: "row",
@@ -194,17 +195,18 @@ const styles = StyleSheet.create({
     color: "#777",
   },
   createButton: {
-    backgroundColor: "#ffc107",
+    backgroundColor: "#FACC15",
     alignItems: "center",
     paddingVertical: 12,
-    borderRadius: 8,
-    width : 180,
-    marginTop : 12,
-    alignSelf : 'center'
+    borderRadius: 10,
+    width : 144,
+    height : 52,
+    marginTop : 100,
+    alignSelf : 'center',
   },
   createButtonText: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#333333",
   },
 });

@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
-import { Avatar, Card, Text, Divider, Menu, Button } from "react-native-paper";
+import { Avatar, Card, Text, Divider, Menu, Button, TextInput } from "react-native-paper";
 import TopbarCustomer from "./TopbarCustomer";
 import { useNavigation } from "@react-navigation/native";
 
@@ -49,6 +49,11 @@ export default function Customers() {
     <>
       <TopbarCustomer />
       <View style={styles.container}>
+          <TextInput
+          style={styles.input}
+          mode="outlined"
+          label="🔍 Search Customer"
+          />
         <View style={styles.headerRow}>
           <Text style={styles.headerText}>All Customers</Text>
           <Menu
@@ -141,6 +146,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 16,
+  },
+  input: {
+    marginBottom: 16,
+    backgroundColor: "#fff",
+    paddingLeft: 10,
   },
   headerText: {
     fontSize: 20,
